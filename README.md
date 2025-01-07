@@ -4,6 +4,7 @@ Each problem has a ("Solve") button, and clicking it reveals the answer next to 
 Key features:[
 
 Dynamic Problems: Problems are created and rendered using JavaScript.
+
 Interactive Buttons: Solving equations happens instantly with a button click.]
 
 ![image](https://github.com/user-attachments/assets/eacfa609-b128-407b-876f-367a796b14e5)
