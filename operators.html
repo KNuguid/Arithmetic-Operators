@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic Solver</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2e2918;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .problem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .label {
+      font-weight: bold;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #312718;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #4c4d36;
+    }
+    .answer {
+      font-weight: bold;
+      color: #1f1003;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arithmetic Operators</h1>
+  <div class="container">
+    <div id="problems">
+    </div>
+  </div>
+
+  <script>
+    const problems = [
+      { label: 'Addition', equation: '5 + 3', solve: () => 5 + 3 },
+      { label: 'Addition', equation: '10 + 7', solve: () => 10 + 7 },
+      { label: 'Subtraction', equation: '15 - 5', solve: () => 15 - 5 },
+      { label: 'Subtraction', equation: '20 - 4', solve: () => 20 - 4 },
+      { label: 'Multiplication', equation: '6 * 3', solve: () => 6 * 3 },
+      { label: 'Multiplication', equation: '8 * 2', solve: () => 8 * 2 },
+      { label: 'Exponentiation', equation: '2 ** 3', solve: () => 2 ** 3 },
+      { label: 'Exponentiation', equation: '4 ** 2', solve: () => 4 ** 2 },
+      { label: 'Division', equation: '12 / 4', solve: () => 12 / 4 },
+      { label: 'Division', equation: '9 / 3', solve: () => 9 / 3 },
+      { label: 'Modulus', equation: '10 % 3', solve: () => 10 % 3 },
+      { label: 'Modulus', equation: '15 % 4', solve: () => 15 % 4 },
+      { label: 'Increment', equation: '7++', solve: () => 7 + 1 },
+      { label: 'Increment', equation: '14++', solve: () => 14 + 1 },
+      { label: 'Decrement', equation: '10--', solve: () => 10 - 1 },
+      { label: 'Decrement', equation: '5--', solve: () => 5 - 1 },
+      { label: 'Combination', equation: '(5 + 3) * 2', solve: () => (5 + 3) * 2 },
+      { label: 'Combination', equation: '(8 - 2) / 2', solve: () => (8 - 2) / 2 },
+      { label: 'Combination', equation: '6 ** 2 + 4', solve: () => 6 ** 2 + 4 },
+      { label: 'Combination', equation: '(15 % 4) + 3', solve: () => (15 % 4) + 3 },
+    ]
+
+    const problemsContainer = document.getElementById('problems');
+    problems.forEach((problem, index) => {
+      const problemDiv = document.createElement('div');
+      problemDiv.classList.add('problem')
+
+      problemDiv.innerHTML = `
+        <div class="label">${index + 1}. ${problem.label}:</div>
+        <div>${problem.equation} = <span class="answer" id="answer-${index}">?</span></div>
+        <button onclick="solveProblem(${index})">Solve</button>`
+      problemsContainer.appendChild(problemDiv);
+    });
+
+    function solveProblem(index) {
+      const answerSpan = document.getElementById(`answer-${index}`);
+      answerSpan.textContent = problems[index].solve();
+    }
+
+
+
+  </script>
+</body>
+</html>
